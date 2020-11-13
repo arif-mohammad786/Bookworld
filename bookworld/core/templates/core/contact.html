@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock title %}
+
+{% block content %}
+
+{% block navigationbar %}
+<!-- start of navigation bar -->
+{% include 'core/navigationbar.html '%}
+<!-- end of navigation bar-->
+{% endblock navigationbar %}
+
+
+<!-- Start of Contact Section -->
+
+  <div class="container mb-5" id="contact" style="margin-top:100px;">
+    <div class=" font-weight-bold text-center">
+    <h1 >Contact Us</h1>
+    </div>
+   
+      <div class=" mb-5 offset-2">
+        <form action="" method="POST">
+          <input type="text" class="form-control shadow font-p" placeholder="Name" name="name"><br>
+          <input type="text" class="form-control font-p shadow " placeholder="Subject" name="subject"><br>
+          <input type="email" class="form-control font-p shadow " placeholder="E-mail" name="email"><br>
+          <textarea class="form-control font-p shadow " placeholder="How Can WE Help You ?" name="message"style="height:150px;"></textarea><br>
+          <input type="submit" class="btn btn-danger" value="Send">
+        </form>
+      </div>
+    
+    
+      <div class=" mt-5 offset-1 text-center">
+        <h3><i class="fa fa-phone mr-3 shadow" aria-hidden="true" style="font-size:30px;"></i>91+ 7619618369</h3>
+        
+        <h3><i class="fa fa-envelope mt-5 mr-3 shadow" aria-hidden="true" style="font-size:30px;"></i>abc@gmail.com</h3>
+      </div>
+    
+  </div>
+
+<!-- End of Contact Section -->
+
+
+
+{% endblock content %}

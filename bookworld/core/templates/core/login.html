@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+{% load static %}
+<!-- title -->
+{% block title %}Login{% endblock title %}
+<!--Navigation bar -->
+{% block navigationbar %}
+    {% include 'core/navigationbar.html' %}
+{% endblock navigationbar %}
+<!-- Page type message -->
+{% block pagetype %}
+    <div style="margin-top:95px;" class="text-center container mb-5">
+        <h3 class="alert alert-primary">Login Page</h3>
+    </div>
+{% endblock pagetype %}
+
+{% block content %}
+    <div class="container bg-light shadow-lg">
+        <div class="row">
+            <div class="col-sm-10 offset-1">
+               <form action="" method="POST" novalidate>
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <h4 class="alert alert-danger">{{error}}</h4>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% for field in form %}
+                        <div class="form-group">
+                            <span class="font-italic ">{{field.label_tag}}</span>
+                            <span>{{field}}</span>
+                            <span style="list-style-type:None;color:red;">{{field.errors|striptags}}</span>
+                        </div>
+                    {% endfor %}
+
+                    <input type="submit" value="Login" class="btn btn-primary my-3 btn-lg">
+                </form>
+            </div>
+        </div>
+    </div>      
+{% endblock content %}

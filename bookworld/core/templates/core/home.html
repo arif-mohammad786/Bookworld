@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Bookworld{% endblock title %}
+
+{% block content %}
+
+{% block navigationbar %}
+<!-- start of navigation bar -->
+{% include 'core/navigationbar.html '%}
+<!-- end of navigation bar-->
+{% endblock navigationbar %}
+
+<!-- start of header image -->
+
+<div class=" container-fluid  mainimage jumbotron img-thumbnail" style="background-image: url('../static/core/images/book3.jpg');">
+
+  <div class="container mt-5   mainheading"> 
+      <h1 class="text-danger font-weight-bold">WELCOME TO BOOKWORLD</h1>
+      <p class="font-italic mt-3">Be Friend With Books</p>
+      <a href="{% url 'signup' %}" class="btn btn-danger mr-5 mt-4 ml-5 font-weight-bold" >Sign Up</a>
+      <a href="{% url 'login' %}" class="btn btn-success mt-4 font-weight-bold" >Login</a>
+  </div>
+
+</div>
+<!-- end of header image -->
+
+<!-- start of Our Service Section -->
+  <div class="container jumbotron text-center " id="services">
+    <h1 class="font-weight-bold">Our Services</h1>
+    <p class="font-italic">Bookworld is one of the most trustable and afforable site where we provide service 
+    to our customer as better as possible. We try to make our customer relations with ourt customer 
+    as better as possible . We deliver the books ordered by customer to theor address as fat as possible.
+    Our state-of-art workshops are conveniently located in many cities across the country. Now you
+    can bookyour service online by doing Registration.
+    </p>
+  </div>
+<!-- End of Our Services Section -->
+
+<!-- Start of Contact Section -->
+
+  <div class="container-fluid mb-5" id="contact">
+    <div class=" font-weight-bold text-center">
+    <h1 >Contact Us</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-7 mb-5 offset-1">
+        <form action="" method="POST">
+          <input type="text" class="form-control shadow font-p" placeholder="Name" name="name"><br>
+          <input type="text" class="form-control font-p shadow " placeholder="Subject" name="subject"><br>
+          <input type="email" class="form-control font-p shadow " placeholder="E-mail" name="email"><br>
+          <textarea class="form-control font-p shadow " placeholder="How Can WE Help You ?" name="message"style="height:150px;"></textarea><br>
+          <input type="submit" class="btn btn-danger" value="Send">
+        </form>
+      </div>
+      <div class="col-md-2 mt-5 offset-1">
+        <h3><i class="fa fa-phone mr-3 shadow" aria-hidden="true" style="font-size:30px;"></i>91+ 7619618369</h3>
+        
+        <h3><i class="fa fa-envelope mt-5 mr-3 shadow" aria-hidden="true" style="font-size:30px;"></i>abc@gmail.com</h3>
+      </div>
+    </div>
+  </div>
+
+<!-- End of Contact Section -->
+
+<!-- Start of footer section -->
+
+  <footer class=" container-fluid  bg-dark text-right">
+    <p class="font-p text-white py-3">Designed by Mohammad Arif</p>
+  </footer> 
+
+<!-- End of footer section -->
+
+
+{% endblock content %}
+
+
+
+
+
+<!--
+  admin username=>root
+  password=root
+-->

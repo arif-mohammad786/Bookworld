@@ -1,0 +1,39 @@
+.navbar-brand{
+    
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+
+}
+
+.nav-item > a {
+    font-size:25px;
+    color: #fff;
+   margin-right:30px;
+}
+.nav-item >a:hover{
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.mainimage{
+   
+    /*background-image: url('../images/book8.jpg');*/
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 720px;
+    border-radius: 0px;
+    margin-top: 75px;
+}
+.font-italic {
+  font-size: 28px;
+}
+.mainheading{
+  float:left;
+}
+
+.font-p{
+  font-size:25px;
+}
+

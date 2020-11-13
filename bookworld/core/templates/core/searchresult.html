@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}{{req}}{% endblock title %}
+
+
+
+<!--Navigation bar-->
+{% block navigationbar %}
+    {% include 'core/navigationbar.html'%}
+{% endblock navigationbar %}
+<!-- body content -->
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-2" style="margin-top:150px;">
+                <h3 class="font-weight-bold alert-danger p-2">Book Category</h3>
+                <ul style="list-style-type:none;height:300px; overflow:auto;"class="font-p  bg-light">
+                    {% for cat in category %}
+                        <li ><a href="{% url 'selectedcategory' cat.category %}" class="text-dark font-weight-bold">{{cat.category}}</a></li><hr>
+                    {% endfor %}
+                </ul>
+            </div>
+           
+            <div class="col-xl-9 offset-1">
+                <div class="form-row">
+                <div class="col-sm-5 offset-3">
+                <h3 class="alert alert-success text-center" style="margin-top:100px;">{{req}}</h3>
+                {% if messages %}
+                    {% for message in messages %}
+                    <h4 {% if message.tags %} class="text-{{message.tags}} mt-5"{% endif %}>{{message}}</h4>
+                    {% endfor %}
+                {% endif %}
+                </div>
+                </div>
+
+            <!--start-->
+
+            <div class="row mb-5 mt-5">
+            {% for book in allbooks %}
+                <div class="col-lg-3 col-sm-6 col-md-4">
+                    
+                    <div class="card mt-5" style="width: 15rem;">
+                        <img src="{{book.image.url}}" class="card-img-top" alt="Image" width="100px" height="150px">
+                        <div class="card-body">
+                            <h5 class="card-title">Title: {{book.title}}</h5>
+                            <p class="card-text"><span class="font-weight-bold">Author: </span>{{book.author}}<br>
+                            <span class="font-weight-bold">Publisher: </span>{{book.publisher}}<br>
+                            <span class="font-weight-bold">Category: </span>{{book.category}}<br>
+                            <span class="font-weight-bold">Price : </span>{{book.price}}</p>
+                            <a href="{% url 'buybook' book.id %}" class="btn btn-primary">Buy</a>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+            </div>
+
+            <!--end-->
+
+
+
+
+            </div>  
+        </div>
+    </div>  
+{% endblock content %}

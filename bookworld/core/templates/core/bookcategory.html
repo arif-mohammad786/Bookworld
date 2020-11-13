@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Admin Dashboard{% endblock title %}
+
+
+<!--Navigation bar-->
+{% block navigationbar %}
+    {% include 'core/navigationbar.html'%}
+{% endblock navigationbar %}
+<!-- body content -->
+{% block pagetype %}
+    <div style="margin-top:95px;" class="text-center container mb-5">
+        <h3 class="alert alert-primary">Admin Dashboard</h3>
+    </div>
+{% endblock pagetype %}
+
+{% block content %}
+
+    {% include 'core/dashbarside.html' %}
+    <div class="col-lg-6 offset-1">
+        <h3 class="text-center alert alert-warning">Book Categories</h3>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book Category</th>
+                </tr>
+                <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td>{{book.id}}</td>
+                            <td>{{book.category}}</td>
+                            <td>
+                                <a href="{% url 'updatebookcategory' book.id %}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{% url 'deletebookcategory' book.id %}" method="POST" class="d-inline">
+                                {% csrf_token %}
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </thead>
+        </table>
+
+        <div class="mt-5 float-right mb-5 mr-5">
+            <a href="{% url 'addbookcategory' %}" class="btn btn-secondary font-p"><i class="fas fa-plus"></i></a>
+        </div>  
+
+    </div>
+
+
+    </div>
+</div>
+    
+{% endblock content %}

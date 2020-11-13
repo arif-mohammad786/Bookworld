@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Admin Dashboard{% endblock title %}
+
+
+<!--Navigation bar-->
+{% block navigationbar %}
+    {% include 'core/navigationbar.html'%}
+{% endblock navigationbar %}
+<!-- body content -->
+{% block pagetype %}
+    <div style="margin-top:95px;" class="text-center container mb-3">
+        <h3 class="alert alert-primary">Admin Dashboard</h3>
+    </div>
+{% endblock pagetype %}
+
+{% block content %}
+
+    {% include 'core/dashbarside.html' %}
+    <div class="col-lg-6 offset-1">
+        
+        <form action="" method="POST" novalidate class="mb-3" enctype="multipart/form-data">
+        {% csrf_token %}
+    
+            <div class="form-group">
+                {% for field in form %}
+                    {{field.label_tag}}{{field}}<span style="color:red;">{{field.errors|striptags}}</span>
+                {% endfor %}
+            </div>
+        
+        <input type="submit" value="Add" class="btn btn-success">
+        <a href="{% url 'dashboard' %}" class="btn btn-danger">Cancel</a>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <h3 {% if message.tags %}class="alert alert-{{message.tags}} {% endif %} text-center">{{message}}</h3>
+            {% endfor %}
+        {% endif %}
+    </div>  
+
+    </div>
+</div>
+    
+{% endblock content %}
